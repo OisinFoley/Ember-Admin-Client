@@ -1,0 +1,30 @@
+{{#each projects as |project|}}
+  <div class="well well-sm bg-info">
+    {{!--
+      <label class="col-xs-6 col-sm-6 col-md-6 col-lg-6">Project ID:  {{project.id}} </label> &nbsp;
+
+      <button class="btn btn-info btn-xs col-xs-2 col-sm-2 col-md-2 col-lg-2" {{action 'openRuntimeProj' project.id usePreprodUrl}}>
+        <span> Open Project </span>
+      </button>
+
+      <button class="btn btn-danger btn-xs col-xs-1 col-xs-offset-2 col-sm-1 col-sm-offset-2 col-md-1 col-md-offset-2 col-lg-1 col-lg-offset-2"
+        {{action 'deleteProject' project usePreprodUrl}}>
+        Delete
+      </button>
+    --}}
+
+    {{!-- {{log project.id}} --}}
+
+
+    {{!--
+        The following seems like overkill, due to the fact it generates 3 new .js files,
+        but at the same time, it adheres to modularisation...
+    --}}
+
+    {{project-label id=project.id}}
+
+    {{open-project Clicked=(action 'openRuntimeProj' project.id) }}
+
+    {{delete-project Clicked=(action 'deleteProject' project.id) }}
+  </div>
+{{/each}}

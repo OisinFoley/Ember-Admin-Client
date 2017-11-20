@@ -1,0 +1,40 @@
+<h3>Runtime Projects List</h3>
+<br>
+<h5>Current Runtime:
+  <b class="sliding-middle-out">
+    Dash -
+    {{#if usePreprod}}Preprod
+    {{else}}
+      Test
+    {{/if}}
+  </b>
+</h5>
+<hr>
+
+<div>
+  <button {{action 'switchRuntimeUrl' }}  class="btn btn-success col-xs-4 col-sm-4 col-md-4 col-lg-4">Change Runtime Url</button>
+  <br>
+  <br>
+  <br>
+
+  <div class="projects-list">
+    {{!-- placing runtime switcher button here will cause scrollbar position to be higher than it should, test to see --}}
+    {{!-- <button {{action 'switchRuntimeUrl' }}  class="btn btn-success col-xs-4 col-sm-4 col-md-4 col-lg-4">Change Runtime Url</button>
+    <br>
+    <br>
+    <br> --}}
+
+    {{!-- {{#if usePreprod}}
+      {{projects-list projectDeleted=(action 'loadRuntimeLists') projects=dashpreprodData usePreprodUrl=usePreprod }}
+    {{else}}
+      {{projects-list projectDeleted=(action 'loadRuntimeLists') projects=dashtestData usePreprodUrl=usePreprod}}
+    {{/if}} --}}
+
+    {{!-- this is the same as the above 'if' block --}}
+    {{projects-list projectDeleted=(action 'loadRuntimeLists')  projects=(if usePreprod dashpreprodData dashtestData) usePreprodUrl=usePreprod }}
+
+  </div>
+</div>
+
+
+

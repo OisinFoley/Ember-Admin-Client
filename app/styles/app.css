@@ -1,0 +1,109 @@
+@import bootstrap;
+
+html {
+  /*overflow: auto;*/
+}
+
+.projects-list{
+
+  height:70vh;
+  overflow-y: scroll;
+  padding:0.7vw;
+}
+
+/*::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  margin-bottom:0.7vh;
+  margin-top:1.7vh;
+
+  background: lavender;
+}*/
+
+
+body{
+  background: #E9ECF5;
+}
+
+.projects-list::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  background: #E9ECF5;
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+}
+
+
+.projects-list::-webkit-scrollbar {
+  width: 12px;
+}
+
+/*seems to control rendering of inner scrollbar*/
+.projects-list::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  margin-bottom:0.7vh;
+  margin-top:1.7vh;
+
+  background: lavender;
+}
+
+
+body > div > div {
+  border: 1px solid white;
+  border-radius: 10px;
+  width: 95%;
+  margin: 3vh auto;
+}
+
+
+h3 {
+  font-size: 6vh;
+}
+
+a:hover {
+  color: gray;
+}
+
+
+iframe{
+  width:88vw;
+  height:90vh;
+}
+
+
+.sliding-middle-out:after {
+  content: '';
+  display: block;
+  margin: auto;
+  height: 3px;
+  width: 0px;
+  background: transparent;
+  transition: width .5s ease, background-color .5s ease;
+}
+
+.sliding-middle-out {
+  display: inline-block;
+  position: relative;
+  padding-bottom: 3px;
+}
+
+.sliding-middle-out span {
+  color:blue;
+  text-align: center;
+}
+
+.sliding-middle-out:after {
+  content: '';
+  display: block;
+  margin: auto;
+  height: 3px;
+  width: 0px;
+  background: transparent;
+  transition: width .5s ease, background-color .5s ease;
+}
+.sliding-middle-out:hover:after {
+  width: 100%;
+  background: cyan;
+}

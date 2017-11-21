@@ -6,29 +6,30 @@ export default Component.extend({
   tagName: '',
   projectsService: inject.service('projectsservice'),
   actions: {
-    openRuntimeProj(projectidid) {
-      /* takes in a project id,
-      *  opens the project
-      *  returns void
-      */
+
+    /**
+     * Open a runtime project in new tab.
+     * @param {string} projectid - id of project to open
+     */
+    openRuntimeProj(projectid) {
+
       let selectedRuntime;
 
       //In the future, here we should grab the selectedValue of a dropdown-list
       this.get('usePreprodUrl') === true? selectedRuntime = 'preprod': selectedRuntime = 'test';
 
       window.open(
-        `http://dash-${selectedRuntime}.azurewebsites.net/runtime/#/project/${projectidid}`,
+        `http://dash-${selectedRuntime}.azurewebsites.net/runtime/#/project/${projectid}`,
         '_blank' // <- This is what makes it open in a new tab.
       );
 
     },
 
+    /**
+     * Delete a runtime project
+     * @param {string} projectid
+     */
     deleteProject(projectid) {
-      /* takes in a project id,
-      *  calls deleteProject from injected service
-      *  after promise is returned, an action passes up to controller asking to refresh project list
-      *  this function returns void
-      */
 
       //quick confirm prompt in case of accidental clicking of delete button
       if (confirm("Are you sure? - Can't be undone") === true) {

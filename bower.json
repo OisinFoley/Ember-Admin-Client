@@ -1,6 +1,6 @@
 {
-  "name": "runtime-admin-app",
+  "name": "admin-client",
   "dependencies": {
-    "bootstrap": "~3.3.5"
+    "bootstrap": "~3.3.7"
   }
 }

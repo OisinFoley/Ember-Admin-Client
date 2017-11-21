@@ -1,8 +1,6 @@
 import Ember from 'ember';
 
-const { Service, RSVP, $ } = Ember;
-
-const Promise = RSVP.Promise;
+const { Service, $ } = Ember;
 
 export default Service.extend({
   getProjects(runtime){
@@ -25,30 +23,23 @@ export default Service.extend({
       return records;
     });
   },
-  deleteProject(runtime, projectid){
+
+  deleteProject(runtime, projectid, successCallback, failCallback){
     /* is passed runtime and a project's id
     *  performs a delete based on the params passed in
     *  returns response in form of a promise
     */
 
-    return new Promise(function(resolve) {
-
       let xhr = new XMLHttpRequest();
       xhr.open('DELETE', `http://dash-${runtime}.azurewebsites.net/api/projects/${projectid}`, true);
       xhr.onload = () => {
         if (xhr.status === 200) {
-
-          resolve(xhr.responseText);
-
+          successCallback(xhr.responseText);
         } else {
-
-          resolve(`failed :  xhr.responseText`);
-
+          failCallback(xhr.responseText);
+          //this code fine,, change service setup so that you can test
         }
       };
       xhr.send();
-
-    });
-
   }
 });

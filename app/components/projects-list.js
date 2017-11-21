@@ -1,11 +1,10 @@
 import Ember from 'ember';
 
-const { inject, Component, $ } = Ember;
+const { inject, Component } = Ember;
 
 export default Component.extend({
   tagName: '',
-
-  ProjectsService: inject.service('projectsservice'),
+  projectsService: inject.service('projectsservice'),
   actions: {
     openRuntimeProj(projectidid) {
       /* takes in a project id,
@@ -15,12 +14,10 @@ export default Component.extend({
       let selectedRuntime;
 
       //In the future, here we should grab the selectedValue of a dropdown-list
-
       this.get('usePreprodUrl') === true? selectedRuntime = 'preprod': selectedRuntime = 'test';
 
       window.open(
         `http://dash-${selectedRuntime}.azurewebsites.net/runtime/#/project/${projectidid}`,
-
         '_blank' // <- This is what makes it open in a new tab.
       );
 
@@ -38,14 +35,17 @@ export default Component.extend({
         let selectedRuntime;
 
         //in the future, this should make use of a switch, where we check the value of a dropdown-list
-
         this.get('usePreprodUrl') === true? selectedRuntime = 'preprod': selectedRuntime = 'test';
 
-        this.get('ProjectsService').deleteProject(selectedRuntime, projectid).then((response) =>{
-
+        this.get('projectsService').deleteProject(selectedRuntime, projectid,
+        (response) => {
+          alert(`Delete completed for: ${response}. \nReloading list...`);
           this.sendAction('projectDeleted');
-
+        },
+        (errorMessage) => {
+          alert(`There was an error deleting the project: ${errorMessage}`);
         });
+
       }
 
     }

@@ -2,7 +2,7 @@ import DS from 'ember-data';
 
 const { RESTSerializer } = DS;
 
-export default DS.RESTSerializer.extend({
+export default RESTSerializer.extend({
 
   normalizeSingleResponse(store, primaryModelClass, payload, id, requestType){
 
@@ -13,7 +13,7 @@ export default DS.RESTSerializer.extend({
   normalizeArrayResponse(store, primaryModelClass, payload, id, requestType) {
     let objArray = [];
 
-    payload.forEach((item, index) => {
+    payload.forEach((item) => {
 
       objArray.push({ id: item});
     });

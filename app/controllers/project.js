@@ -10,7 +10,7 @@ export default Controller.extend({
   //as you add more runtimes, remove this next property
   usePreprod:true,
   init() {
-    this._super();
+    this._super(...arguments);
     this.send('loadRuntimeLists');
   },
   actions: {

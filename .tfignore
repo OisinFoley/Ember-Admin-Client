@@ -1,0 +1,22 @@
+# See https://msdn.microsoft.com/en-us/library/ms245454.aspx?f=255&MSPPError=-2147217396#tfignore for more about ignoring files.
+
+# compiled output
+/dist
+/tmp
+/docs
+
+# dependencies
+/node_modules
+/bower_components
+
+# misc
+/.sass-cache
+/connect.lock
+/coverage/*
+/libpeerconnection.log
+npm-debug.log
+testem.log
+
+# JetBrains says ignore "workspace.xml" https://www.jetbrains.com/webstorm/help/project.html
+#/.idea/workspace.xml
+/.idea

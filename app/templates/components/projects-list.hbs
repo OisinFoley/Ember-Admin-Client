@@ -1,0 +1,11 @@
+{{#each projects as |project|}}
+  <div class="well well-sm bg-info">
+
+    {{project-label id=project.id}}
+
+    {{open-project Clicked=(action 'openRuntimeProj' project.id) }}
+
+    {{delete-project Clicked=(action 'deleteProject' project.id) }}
+
+  </div>
+{{/each}}

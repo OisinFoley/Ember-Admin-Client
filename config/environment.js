@@ -5,7 +5,7 @@ module.exports = function(environment) {
   let ENV = {
     modulePrefix: 'runtime-admin-app',
     environment,
-    rootURL: '/',
+    rootURL: '/runtime/admin/',
     locationType: 'auto',
     EmberENV: {
       FEATURES: {

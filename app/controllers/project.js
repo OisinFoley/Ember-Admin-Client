@@ -14,7 +14,7 @@ export default Controller.extend({
     },
     loadRuntimeLists(){
 
-      let runtime = location.href.substring((window.location.href.indexOf('dash')), window.location.href.indexOf('\.'));
+      let runtime = location.href.substring((window.location.href.indexOf('dash')), window.location.href.indexOf('.'));
       this.set('runtime', runtime);
 
       this.get('projectsService').getProjects(runtime).then((json) => {

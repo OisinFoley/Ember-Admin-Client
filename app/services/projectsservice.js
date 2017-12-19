@@ -10,7 +10,8 @@ export default Service.extend({
     *  returns array of objects with each object containing project name/id
     */
 
-    let data = $.getJSON(`http://dash-${runtime}.azurewebsites.net/api/projects`);
+    //let data = $.getJSON(`http://dash-${runtime}.azurewebsites.net/api/projects`);
+    let data = $.getJSON(`http://${runtime}.azurewebsites.net/api/projects`);
 
     return data.then((json) => {
 
@@ -31,7 +32,7 @@ export default Service.extend({
     */
 
       let xhr = new XMLHttpRequest();
-      xhr.open('DELETE', `http://dash-${runtime}.azurewebsites.net/api/projects/${projectid}`, true);
+      xhr.open('DELETE', `http://${runtime}.azurewebsites.net/api/projects/${projectid}`, true);
       xhr.onload = () => {
         if (xhr.status === 200) {
           successCallback(xhr.responseText);

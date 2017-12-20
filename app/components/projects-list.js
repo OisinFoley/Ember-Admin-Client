@@ -13,8 +13,7 @@ export default Component.extend({
      */
     openRuntimeProj(projectid) {
 
-      window.open(
-        //`http://dash-${selectedRuntime}.azurewebsites.net/runtime/#/project/${projectid}`,
+      window.open(        
         `http://${this.get('runtime')}.azurewebsites.net/runtime/#/project/${projectid}`,
         '_blank' // <- This is what makes it open in a new tab.
       );

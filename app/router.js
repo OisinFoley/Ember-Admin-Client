@@ -8,7 +8,6 @@ const Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('project');
-  this.route('open-project');
 });
 
 export default Router;
